@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>San Valentin</title>
 </head>
+
 <body>
-    <h1>Prueba</h1>
+    <main class="container">
+        <div class="container_header">
+            <h1>Mi niña...</h1>
+            <p>¿Le gustaria ser mi San Valentin?</p>
+            <button class="button_love">Shi 💞</button>
+            <button class="button_nou">Nou 😥</button>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <h2>Owwwwww...</h2>
+                <p>Sabia que mi bebe hermosa queria jejeje 💟, Te amo mucho mi bebe,
+                    se lo mucho que te ilusiona este tipo de detalles espero te guste mi amocito
+                    te veo el viernes jejejeje ya le daré su sorpresita. 😘
+                </p>
+                <img src="img/imagen_1.jpeg" alt="">
+                <button class="close-btn">Cerrar</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const openModal = document.querySelector('.button_love');
+        const closeModal = document.querySelector('.close-btn');
+
+        openModal.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Cierra el modal si se hace clic fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+    </script>
 </body>
+
 </html>
