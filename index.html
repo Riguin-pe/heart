@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>San Valentin</title>
+</head>
+
+<body>
+    <main class="container">
+        <div class="container_header">
+            <canvas id="canvas"></canvas>
+            <h1>Mi niña...</h1>
+            <p>¿Le gustaria ser mi San Valentin?</p>
+            <button class="button_love">Shi 💞</button>
+            <button class="button_nou">Nou 😥</button>
+
+            <div class="container_swiper">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="image_1" src="img/img_1.jpeg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="image_1" src="img/img_2.jpeg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="image_1" src="img/img_3.jpeg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="image_1" src="img/img_4.jpeg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="image_1" src="img/img_5.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal_yes">
+            <div class="modal-content">
+                <h2>Owwwwww...</h2>
+                <p>Sabia que mi bebe hermosa queria jejeje 💟, Te amo mucho mi bebe,
+                    se lo mucho que te ilusiona este tipo de detalles espero te guste mi amocito
+                    te veo el viernes jejejeje ya le daré su sorpresita. 😘
+                </p>
+                <img src="img/imagen_1.jpeg" alt="">
+                <button class="close-btn">Cerrar</button>
+            </div>
+        </div>
+
+        <div class="modal" id="modal_error">
+            <div class="modal-content">
+                <h2>Upps...</h2>
+                <p>
+                    Hubo un error de sistema, esta opcion jamas existió xd.
+                </p>
+                <button class="close-btn-error">Cerrar</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            speed: 400,
+            autoplay: true,
+            autoplayDisableOnInteraction: false,
+            centeredSlides: false,
+            paginationClickable: true,
+            slidesPerView: 4,
+            initialSlide: 0,
+            spaceBetween: 10,
+        });
+    </script>
+    <script>
+        const modal = document.getElementById('modal_yes');
+        const openModal = document.querySelector('.button_love');
+        const closeModal = document.querySelector('.close-btn');
+
+        openModal.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Cierra el modal si se hace clic fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+
+
+        const modal_error = document.getElementById('modal_error');
+        const openModalError = document.querySelector('.button_nou');
+        const closeModalError = document.querySelector('.close-btn-error');
+
+        openModalError.addEventListener('click', () => {
+            modal_error.classList.add('show');
+        });
+
+        closeModalError.addEventListener('click', () => {
+            modal_error.classList.remove('show');
+            openModalError.classList.add('bye');
+        });
+
+        // Cierra el modal si se hace clic fuera del contenido
+        modal_error.addEventListener('click', (e) => {
+            if (e.target === modal_error) {
+                modal_error.classList.remove('show');
+                openModalError.classList.add('bye');
+            }
+        });
+    </script>
+    <script type="module">
+        import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+        new DotLottie({
+            autoplay: true,
+            loop: true,
+            canvas: document.getElementById("canvas"),
+            src: "https://lottie.host/94bf2850-a46e-445d-9c0b-2e6b212f7690/BN1CRJyw60.lottie", // or .json file
+        });
+    </script>
+</body>
+
+</html>
